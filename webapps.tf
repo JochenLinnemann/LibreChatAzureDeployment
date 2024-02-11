@@ -64,7 +64,7 @@ resource "azurerm_linux_web_app" "librechat" {
     #                     Endpoints                     #
     #===================================================#
 
-    ENDPOINTS = "azureOpenAI" #openAI,azureOpenAI,bingAI,chatGPTBrowser,google,gptPlugins,anthropic
+    ENDPOINTS = "openAI" #openAI,azureOpenAI,bingAI,chatGPTBrowser,google,gptPlugins,anthropic
 
     # PROXY=
 
@@ -120,7 +120,7 @@ resource "azurerm_linux_web_app" "librechat" {
     # OpenAI     #
     #============#
 
-    # OPENAI_API_KEY = var.openai_key
+    OPENAI_API_KEY = var.openai_key
     # OPENAI_MODELS = "gpt-3.5-turbo-1106,gpt-4-1106-preview,gpt-3.5-turbo,gpt-3.5-turbo-16k,gpt-3.5-turbo-0301,text-davinci-003,gpt-4,gpt-4-0314,gpt-4-0613"
 
     DEBUG_OPENAI = false

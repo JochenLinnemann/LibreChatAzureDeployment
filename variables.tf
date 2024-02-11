@@ -1,16 +1,16 @@
 variable "location" {
   description = "The location where all resources will be deployed"
-  default     = "australiaeast"
+  default     = "germanywestcentral"
 }
 
 variable "app_title" {
   description = "The title that librechat will display"
-  default     = "librechat"
+  default     = "JLJ4 LibreChat"
 }
 
 variable "openai_key" {
   description = "OpenAI API Key"
-  default     = ""
+  default     = "user_provided"
   sensitive   = true
 }
 
