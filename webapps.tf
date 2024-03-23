@@ -76,22 +76,22 @@ resource "azurerm_linux_web_app" "librechat" {
     # ANTHROPIC_MODELS  = "claude-1,claude-instant-1,claude-2"
     # ANTHROPIC_REVERSE_PROXY=
 
-    #============#
-    # Azure      #
-    #============#
+    # #============#
+    # # Azure      #
+    # #============#
 
-    AZURE_API_KEY       = module.openai.openai_primary_key
-    AZURE_OPENAI_MODELS = "gpt-3.5-turbo,gpt-4"
-    # AZURE_OPENAI_DEFAULT_MODEL = "gpt-3.5-turbo"
-    # PLUGINS_USE_AZURE = true
+    # AZURE_API_KEY       = module.openai.openai_primary_key
+    # AZURE_OPENAI_MODELS = "gpt-3.5-turbo,gpt-4"
+    # # AZURE_OPENAI_DEFAULT_MODEL = "gpt-3.5-turbo"
+    # # PLUGINS_USE_AZURE = true
 
-    AZURE_USE_MODEL_AS_DEPLOYMENT_NAME = true
+    # AZURE_USE_MODEL_AS_DEPLOYMENT_NAME = true
 
-    AZURE_OPENAI_API_INSTANCE_NAME = split("//", split(".", module.openai.openai_endpoint)[0])[1]
-    # AZURE_OPENAI_API_DEPLOYMENT_NAME =
-    AZURE_OPENAI_API_VERSION = var.azure_openai_api_version
-    # AZURE_OPENAI_API_COMPLETIONS_DEPLOYMENT_NAME =
-    # AZURE_OPENAI_API_EMBEDDINGS_DEPLOYMENT_NAME  =
+    # AZURE_OPENAI_API_INSTANCE_NAME = split("//", split(".", module.openai.openai_endpoint)[0])[1]
+    # # AZURE_OPENAI_API_DEPLOYMENT_NAME =
+    # AZURE_OPENAI_API_VERSION = var.azure_openai_api_version
+    # # AZURE_OPENAI_API_COMPLETIONS_DEPLOYMENT_NAME =
+    # # AZURE_OPENAI_API_EMBEDDINGS_DEPLOYMENT_NAME  =
 
     #============#
     # BingAI     #
@@ -329,7 +329,8 @@ resource "azurerm_linux_web_app" "librechat" {
   }
   virtual_network_subnet_id = azurerm_subnet.librechat_subnet.id
 
-  depends_on = [azurerm_linux_web_app.meilisearch, azurerm_cosmosdb_account.librechat, module.openai]
+  depends_on = [azurerm_linux_web_app.meilisearch, azurerm_cosmosdb_account.librechat]
+  # depends_on = [azurerm_linux_web_app.meilisearch, azurerm_cosmosdb_account.librechat, module.openai]
   # depends_on = [azurerm_linux_web_app.meilisearch]
 }
 
